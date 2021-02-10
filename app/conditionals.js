@@ -2,7 +2,11 @@
 
 function largerNum(num1, num2) {
     // you code here
-
+    if((num2/num1) > (num1/num2)) {
+        return num2
+    } else {
+        return num1
+    }
 }
 
 // 2. Given two numbers, amount correct and amount possible of a test, return the corresponding letter grade.
@@ -14,7 +18,20 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
-
+    let grade = Math.floor((score/possible) * 100)
+    let result = "default"
+    if(grade >= 90) {
+        return "A"
+    } else if(grade >=80) {
+        return "B"
+    } else if(grade >=70) {
+        return "C"
+    } else if(grade >=60) {
+        return "D"
+    } else if(grade <=59) {
+        return "E"
+    }
+    return "E"
 }
 
 
@@ -30,12 +47,26 @@ function testGrader(score, possible) {
 
 function timeOfDayGreeting(hour) {
     // you code below
-
+    if(hour >= 5 && hour <= 11) {
+        return "Good Morning"
+    } else if(hour >= 12 && hour <= 17) {
+        return "Good Afternoon"
+    } else if(hour >= 18 && hour <= 21) {
+        return "Good Evening"
+    } else if((hour >= 22 && hour <= 24) || (hour >= 1 && hour <= 4)){
+        return "Good Night"
+    }
 }
 
 //4. Write a function that will take in a number and return 'fever' if it indicates a fever (over 98.6) and additionally if the person should go to the hospital (at or above 103) 'fever go to hospital' (hint: try this with string concatenation), if it is under return 'no fever'
 function isFever(temp) {
-
+    if(temp >= 103) {
+        return "fever go to hospital"
+    } else if(temp > 98.6) {
+        return "fever"
+    } else {
+        return "no fever"
+    }
 }
 
 //5. Write a function that takes in a car object, if it is not moving then return true
@@ -47,7 +78,11 @@ let myCar = {
 }
 
 function isStopped(car) {
-
+    if(car.moving) {
+        return false
+    } else if(!car.moving) {
+        return true
+    }
 }
 
 //6. Write a function that returns true if a dish is yours and is dirty, or false if one of the statements is false
@@ -58,5 +93,9 @@ let dish = {
 }
 
 function washDish(dish) {
-
+    if(dish.yourDish && dish.isDirty) {
+        return true
+    } else {
+        return false
+    }
 }
